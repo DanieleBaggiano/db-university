@@ -112,3 +112,38 @@ GROUP BY `departments`.`name`
 
 
 
+JOIN
+
+
+esercizio 1
+
+SELECT `students`.*
+FROM `degrees`
+INNER JOIN `students`
+ON `degrees`.`id` = `students`.`degree_id`
+WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
+
+
+esercizio 2
+
+SELECT `degrees`.*
+FROM `departments` 
+INNER JOIN `degrees`
+ON `departments`.`id` = `degrees`.`department_id`
+WHERE `departments`.`name` = 'Dipartimento di Neuroscienze' 
+AND `degrees`.`level` = 'magistrale'
+
+
+esercizio 3
+
+SELECT `courses`.*
+FROM  `teachers`
+INNER JOIN `course_teacher`
+ON `teachers`.`id` = `course_teacher`.`teacher_id`
+INNER JOIN `courses`
+ON `course_teacher`.`course_id` = `courses`.`id`
+WHERE `teachers`.`id` = '44'
+
+
+esercizio 4
+
