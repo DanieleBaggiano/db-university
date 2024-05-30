@@ -74,3 +74,41 @@ WHERE name = 'Daniele'
 AND surname = 'Baggiano'
 AND date_of_birth = '1998-01-28'
 AND email = 'danielebaggiano@gmail.com';
+
+
+
+GROUP BY
+
+
+esercizio 1
+
+SELECT YEAR(enrolment_date) AS enrolment_year, COUNT(*) AS number_of_students
+FROM `students`
+GROUP BY YEAR(enrolment_date)
+ORDER BY enrolment_year;
+
+
+esercizio 2
+
+SELECT `teachers`.`office_address`, COUNT(*) AS `number_of_teachers`
+FROM `teachers`
+GROUP BY `teachers`.`office_address`;
+
+
+esercizio 3
+
+SELECT `exam_student`.`exam_id`, AVG(vote) AS `average_vote`
+FROM `exam_student`
+GROUP BY `exam_student`.`exam_id`
+
+
+esercizio 4
+
+SELECT  `departments`.`name` AS `department_name`, COUNT(`degrees`.`id`) AS `numbers_of_courses`
+FROM `departments` 
+INNER JOIN `degrees`
+ON `departments`.`id` = `degrees`.`department_id`
+GROUP BY `departments`.`name`
+
+
+
