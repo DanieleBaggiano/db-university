@@ -147,3 +147,23 @@ WHERE `teachers`.`id` = '44'
 
 esercizio 4
 
+SELECT `students`.*, `degrees`.`name` AS `degree_name`, `degrees`.`level`, `departments`.`name` AS `department_name`
+FROM `students`
+INNER JOIN `degrees` 
+ON `students`.`degree_id` = `degrees`.`id`
+INNER JOIN `departments` 
+ON `degrees`.`department_id` = `departments`.`id`
+ORDER BY `students`.`surname`, `students`.`name`;
+
+
+esercizio 5
+
+SELECT  `degrees`.`name` AS `degree_name`, `degrees`.`level`, `courses`.`name` AS `course_name`, `teachers`.`name` AS `teacher_name`, `teachers`.`surname` AS `teacher_surname`
+FROM `degrees` 
+INNER JOIN `courses`
+ON `degrees`.`id` = `courses`.`degree_id`
+INNER JOIN `course_teacher`
+ON `courses`.`id` = `course_teacher`.`course_id`
+INNER JOIN `teachers`
+ON `course_teacher`.`course_id` = `teachers`.`id`
+ORDER BY `degrees`.`name`, `courses`.`name`, `teachers`.`surname`, `teachers`.`name`;
